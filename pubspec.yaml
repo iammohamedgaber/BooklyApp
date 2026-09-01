@@ -30,6 +30,7 @@ environment:
 dependencies:
   assist: ^0.3.1
   cupertino_icons: ^1.0.8
+  dartz: ^0.10.1
   equatable: ^2.1.0
   flutter:
     sdk: flutter
