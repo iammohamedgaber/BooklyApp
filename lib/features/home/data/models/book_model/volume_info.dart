@@ -7,13 +7,15 @@ import 'reading_modes.dart';
 
 class VolumeInfo extends Equatable {
   final String? title;
+  final String? subtitle;
   final List<String>? authors;
+  final String? publisher;
   final String? publishedDate;
+  final String? description;
   final List<IndustryIdentifier>? industryIdentifiers;
   final ReadingModes? readingModes;
   final int? pageCount;
   final String? printType;
-  final List<String>? categories;
   final String? maturityRating;
   final bool? allowAnonLogging;
   final String? contentVersion;
@@ -26,13 +28,15 @@ class VolumeInfo extends Equatable {
 
   const VolumeInfo({
     this.title,
+    this.subtitle,
     this.authors,
+    this.publisher,
     this.publishedDate,
+    this.description,
     this.industryIdentifiers,
     this.readingModes,
     this.pageCount,
     this.printType,
-    this.categories,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
@@ -46,8 +50,11 @@ class VolumeInfo extends Equatable {
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
     title: json['title'] as String?,
+    subtitle: json['subtitle'] as String?,
     authors: json['authors'] as List<String>?,
+    publisher: json['publisher'] as String?,
     publishedDate: json['publishedDate'] as String?,
+    description: json['description'] as String?,
     industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
         ?.map((e) => IndustryIdentifier.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -56,7 +63,6 @@ class VolumeInfo extends Equatable {
         : ReadingModes.fromJson(json['readingModes'] as Map<String, dynamic>),
     pageCount: json['pageCount'] as int?,
     printType: json['printType'] as String?,
-    categories: json['categories'] as List<String>?,
     maturityRating: json['maturityRating'] as String?,
     allowAnonLogging: json['allowAnonLogging'] as bool?,
     contentVersion: json['contentVersion'] as String?,
@@ -76,13 +82,15 @@ class VolumeInfo extends Equatable {
 
   Map<String, dynamic> toJson() => {
     'title': title,
+    'subtitle': subtitle,
     'authors': authors,
+    'publisher': publisher,
     'publishedDate': publishedDate,
+    'description': description,
     'industryIdentifiers': industryIdentifiers?.map((e) => e.toJson()).toList(),
     'readingModes': readingModes?.toJson(),
     'pageCount': pageCount,
     'printType': printType,
-    'categories': categories,
     'maturityRating': maturityRating,
     'allowAnonLogging': allowAnonLogging,
     'contentVersion': contentVersion,
@@ -98,13 +106,15 @@ class VolumeInfo extends Equatable {
   List<Object?> get props {
     return [
       title,
+      subtitle,
       authors,
+      publisher,
       publishedDate,
+      description,
       industryIdentifiers,
       readingModes,
       pageCount,
       printType,
-      categories,
       maturityRating,
       allowAnonLogging,
       contentVersion,
