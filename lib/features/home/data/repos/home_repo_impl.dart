@@ -20,7 +20,10 @@ class HomeRepoImpl implements HomeRepo {
 
       return Right(bookModel.items ?? []);
     } catch (e) {
-      return Left(ServerFailure());
+      if (e is DioException) {
+        return left(ServerFailure.DioException(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 
