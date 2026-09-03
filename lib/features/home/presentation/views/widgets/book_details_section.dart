@@ -33,7 +33,7 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(height: 18),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 125),
-          child: BookRating(),
+          child: BookRating(count: 5,),
         ),
         const SizedBox(height: 37),
         const BooksAction(),
