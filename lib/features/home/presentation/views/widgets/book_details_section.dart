@@ -15,7 +15,7 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .2),
-          child: const CoustomBookImageItem(),
+          child: const CoustomBookImageItem(imageUrl: 'https://picsum.photos/seed/picsum/200/300',),
         ),
         const SizedBox(height: 40),
         Text(
