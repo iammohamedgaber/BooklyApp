@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
+  setupServiceLocator();
   runApp(const Bookly());
 }
 
@@ -24,9 +25,8 @@ class Bookly extends StatelessWidget {
           create: (context) =>
               FeaturedBooksCubit(HomeRepoImpl(ApiService(Dio()))),
         ),
-          BlocProvider(
-          create: (context) =>
-              NewsetBooksCubit(getIt.get<HomeRepoImpl>()),
+        BlocProvider(
+          create: (context) => NewsetBooksCubit(getIt.get<HomeRepoImpl>()),
         ),
       ],
       child: MaterialApp.router(
