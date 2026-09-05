@@ -10,6 +10,7 @@ class VolumeInfo extends Equatable {
   final String? subtitle;
   final List<String>? authors;
   final String? publisher;
+  final List<String>? categories;
   final String? publishedDate;
   final String? description;
   final List<IndustryIdentifier>? industryIdentifiers;
@@ -27,6 +28,7 @@ class VolumeInfo extends Equatable {
   final String? canonicalVolumeLink;
 
   const VolumeInfo({
+    this.categories,
     this.title,
     this.subtitle,
     this.authors,
@@ -49,6 +51,7 @@ class VolumeInfo extends Equatable {
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
+    categories: (json['categories'] as List<dynamic>?)?.cast<String>(),
     title: json['title'] as String?,
     subtitle: json['subtitle'] as String?,
     authors: (json['authors'] as List<dynamic>?)?.cast<String>(),
@@ -98,6 +101,7 @@ class VolumeInfo extends Equatable {
     'previewLink': previewLink,
     'infoLink': infoLink,
     'canonicalVolumeLink': canonicalVolumeLink,
+    'categories': categories,
   };
 
   @override
@@ -122,6 +126,7 @@ class VolumeInfo extends Equatable {
       previewLink,
       infoLink,
       canonicalVolumeLink,
+      categories,
     ];
   }
 }
