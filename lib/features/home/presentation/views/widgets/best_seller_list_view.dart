@@ -22,7 +22,7 @@ class BestSallerListView extends StatelessWidget {
             },
           );
         } else if (state is NewsetBooksFailure) {
-          return CustomErrorWidget(errorMessage: state.errMessage);
+          return SliverToBoxAdapter(child: CustomErrorWidget(errorMessage: state.errMessage));
         } else {
           return const SliverToBoxAdapter(child: CustomLodingIndicator());
         }
